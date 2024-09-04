@@ -24,3 +24,115 @@ dd {
     font-size: 18px;
     margin: 0;
 }
+
+
+
+
+.page1, .page2, .page3, .page4, .page5, .page6, .page7, .page8, .page9, .page10, .page11 {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    filter: brightness(1.2); /* Adjust the brightness of the text */
+    color: white; /* Ensure text is visible on darker backgrounds */
+}
+
+.page1::before,
+.page2::before,
+.page3::before,
+.page4::before,
+.page5::before,
+.page6::before,
+.page7::before,
+.page8::before,
+.page9::before,
+.page10::before,
+.page11::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    filter: brightness(0.4); /* Adjust the brightness of the background image */
+    z-index: -1;
+}
+
+/* Apply specific background images for each page */
+.page1::before {
+    background-image: url('/assets/img/background1.png');
+}
+
+.page2::before {
+    background-image: url('/assets/img/background2.png');
+}
+
+.page3::before {
+    background-image: url('/assets/img/background3.png');
+}
+
+.page4::before {
+    background-image: url('/assets/img/background4.png');
+}
+
+.page5::before {
+    background-image: url('/assets/img/background5.png');
+}
+
+.page6::before {
+    background-image: url('/assets/img/background6.png');
+}
+
+.page7::before {
+    background-image: url('/assets/img/background7.png');
+}
+
+.page8::before {
+    background-image: url('/assets/img/background8.png');
+}
+
+.page9::before {
+    background-image: url('/assets/img/background9.png');
+}
+
+.page10::before {
+    background-image: url('/assets/img/background10.png');
+}
+
+.page11::before {
+    background-image: url('/assets/img/background11.png');
+}
+
+/* Optional: Adjust text contrast for better visibility */
+.page1 h2, .page1 dd,
+.page2 h2, .page2 dd,
+.page3 h2, .page3 dd,
+.page4 h2, .page4 dd,
+.page5 h2, .page5 dd,
+.page6 h2, .page6 dd,
+.page7 h2, .page7 dd,
+.page8 h2, .page8 dd,
+.page9 h2, .page9 dd,
+.page10 h2, .page10 dd,
+.page11 h2, .page11 dd {
+    filter: brightness(1.1); /* Increase text brightness slightly */
+}
+
+
+@media (max-width: 768px) {
+    .page {
+        background-size: contain; /* Adjusts the image to be fully visible on smaller screens */
+        background-attachment: scroll; /* Improves performance on mobile devices */
+    }
+}
+
+/* For even smaller screens like smartphones */
+@media (max-width: 480px) {
+    .page {
+        background-size: contain;
+        background-position: center top; /* Positions the image better on smaller screens */
+    }
+}
