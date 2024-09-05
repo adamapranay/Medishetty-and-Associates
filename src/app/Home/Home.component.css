@@ -1,133 +1,118 @@
+/* Global Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+    perspective: 1000px; /* Adding perspective to create depth */
 }
+
+/* Page Container */
 .page {
-    page-break-after: always; 
     padding: 40px;
-    height: 100vh; 
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    page-break-after: always;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    filter: brightness(1.2);
+    transform-style: preserve-3d;
 }
 
+/* Typography */
 dt {
+    font-size: 1.5rem;
     font-weight: bold;
-    font-size: 24px;
-    margin-bottom: 10px;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.05em;
+    color: #f1f1f1;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
 }
 
 dd {
-    font-size: 18px;
+    font-size: 1.2rem;
     margin: 0;
+    line-height: 1.6;
+    color: #e0e0e0;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
-
-
-
-.page1, .page2, .page3, .page4, .page5, .page6, .page7, .page8, .page9, .page10, .page11 {
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-    filter: brightness(1.2); 
-    color: white; 
+/* Page Backgrounds */
+.page1, .page2, .page3, .page4, .page5, 
+.page6, .page7, .page8, .page9, .page10, .page11 {
+    color: #fff;
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
 
-.page1::before,
-.page2::before,
-.page3::before,
-.page4::before,
-.page5::before,
-.page6::before,
-.page7::before,
-.page8::before,
-.page9::before,
-.page10::before,
-.page11::before {
+.page:hover {
+    transform: scale(1.02);
+    filter: brightness(1.4);
+}
+
+/* Page Background Images */
+.page::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 110%;
+    height: 110%;
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
     background-position: center;
-    filter: brightness(0.4); /* Adjust the brightness of the background image */
+    filter: brightness(0.5);
+    transition: transform 0.5s ease-out; /* Smooth transition for movement */
     z-index: -1;
+    transform-origin: center;
+    will-change: transform; /* Optimize performance */
 }
 
-.page1::before {
-    background-image: url('/assets/img/background1.png');
+/* Hover effect to simulate parallax */
+.page:hover::before {
+    transform: translate3d(-10px, -10px, 0); /* Adjust these values for more/less movement */
 }
 
-.page2::before {
-    background-image: url('/assets/img/background2.png');
+.page1::before { background-image: url('/assets/img/background1.png'); }
+.page2::before { background-image: url('/assets/img/background2.png'); }
+.page3::before { background-image: url('/assets/img/background3.png'); }
+.page4::before { background-image: url('/assets/img/background4.png'); }
+.page5::before { background-image: url('/assets/img/background5.png'); }
+.page6::before { background-image: url('/assets/img/background6.png'); }
+.page7::before { background-image: url('/assets/img/background7.png'); }
+.page8::before { background-image: url('/assets/img/background8.png'); }
+.page9::before { background-image: url('/assets/img/background9.png'); }
+.page10::before { background-image: url('/assets/img/background10.png'); }
+.page11::before { background-image: url('/assets/img/background11.png'); }
+
+/* Enhanced Text Appearance */
+.page h2, .page dd {
+    filter: brightness(1.1);
+    transition: color 0.3s ease-in-out;
 }
 
-.page3::before {
-    background-image: url('/assets/img/background3.png');
+.page:hover h2, .page:hover dd {
+    color: #f6f5f3;
 }
 
-.page4::before {
-    background-image: url('/assets/img/background4.png');
-}
-
-.page5::before {
-    background-image: url('/assets/img/background5.png');
-}
-
-.page6::before {
-    background-image: url('/assets/img/background6.png');
-}
-
-.page7::before {
-    background-image: url('/assets/img/background7.png');
-}
-
-.page8::before {
-    background-image: url('/assets/img/background8.png');
-}
-
-.page9::before {
-    background-image: url('/assets/img/background9.png');
-}
-
-.page10::before {
-    background-image: url('/assets/img/background10.png');
-}
-
-.page11::before {
-    background-image: url('/assets/img/background11.png');
-}
-.page1 h2, .page1 dd,
-.page2 h2, .page2 dd,
-.page3 h2, .page3 dd,
-.page4 h2, .page4 dd,
-.page5 h2, .page5 dd,
-.page6 h2, .page6 dd,
-.page7 h2, .page7 dd,
-.page8 h2, .page8 dd,
-.page9 h2, .page9 dd,
-.page10 h2, .page10 dd,
-.page11 h2, .page11 dd {
-    filter: brightness(1.1); 
-}
-
-
+/* Responsive Design */
 @media (max-width: 768px) {
     .page {
-        background-size: contain; 
+        background-size: contain;
         background-attachment: scroll;
+        padding: 30px;
     }
 }
+
 @media (max-width: 480px) {
     .page {
         background-size: contain;
-        background-position: center top; 
+        background-position: center top;
+        padding: 20px;
     }
 }
