@@ -32,8 +32,8 @@ dd {
     position: relative;
     z-index: 1;
     overflow: hidden;
-    filter: brightness(1.2); /* Adjust the brightness of the text */
-    color: white; /* Ensure text is visible on darker backgrounds */
+    filter: brightness(1.2); 
+    color: white; 
 }
 
 .page1::before,
@@ -61,7 +61,6 @@ dd {
     z-index: -1;
 }
 
-/* Apply specific background images for each page */
 .page1::before {
     background-image: url('/assets/img/background1.png');
 }
@@ -105,8 +104,6 @@ dd {
 .page11::before {
     background-image: url('/assets/img/background11.png');
 }
-
-/* Optional: Adjust text contrast for better visibility */
 .page1 h2, .page1 dd,
 .page2 h2, .page2 dd,
 .page3 h2, .page3 dd,
@@ -118,21 +115,19 @@ dd {
 .page9 h2, .page9 dd,
 .page10 h2, .page10 dd,
 .page11 h2, .page11 dd {
-    filter: brightness(1.1); /* Increase text brightness slightly */
+    filter: brightness(1.1); 
 }
 
 
 @media (max-width: 768px) {
     .page {
-        background-size: contain; /* Adjusts the image to be fully visible on smaller screens */
-        background-attachment: scroll; /* Improves performance on mobile devices */
+        background-size: contain; 
+        background-attachment: scroll;
     }
 }
-
-/* For even smaller screens like smartphones */
 @media (max-width: 480px) {
     .page {
         background-size: contain;
-        background-position: center top; /* Positions the image better on smaller screens */
+        background-position: center top; 
     }
 }
