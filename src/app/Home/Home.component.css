@@ -1,14 +1,11 @@
-/* Global Styles */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f9;
     color: #333;
-    perspective: 1000px; /* Adding perspective to create depth */
+    perspective: 1000px; 
 }
-
-/* Page Container */
 .page {
     padding: 40px;
     height: 100vh;
@@ -24,8 +21,6 @@ body {
     filter: brightness(1.2);
     transform-style: preserve-3d;
 }
-
-/* Typography */
 dt {
     font-size: 1.5rem;
     font-weight: bold;
@@ -43,19 +38,15 @@ dd {
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
-/* Page Backgrounds */
 .page1, .page2, .page3, .page4, .page5, 
 .page6, .page7, .page8, .page9, .page10, .page11 {
     color: #fff;
     transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
-
 .page:hover {
     transform: scale(1.02);
     filter: brightness(1.4);
 }
-
-/* Page Background Images */
 .page::before {
     content: "";
     position: absolute;
@@ -67,15 +58,13 @@ dd {
     background-repeat: no-repeat;
     background-position: center;
     filter: brightness(0.5);
-    transition: transform 0.5s ease-out; /* Smooth transition for movement */
+    transition: transform 0.5s ease-out; 
     z-index: -1;
     transform-origin: center;
-    will-change: transform; /* Optimize performance */
+    will-change: transform; 
 }
-
-/* Hover effect to simulate parallax */
 .page:hover::before {
-    transform: translate3d(-10px, -10px, 0); /* Adjust these values for more/less movement */
+    transform: translate3d(-10px, -10px, 0); 
 }
 
 .page1::before { background-image: url('/assets/img/background1.png'); }
@@ -90,7 +79,6 @@ dd {
 .page10::before { background-image: url('/assets/img/background10.png'); }
 .page11::before { background-image: url('/assets/img/background11.png'); }
 
-/* Enhanced Text Appearance */
 .page h2, .page dd {
     filter: brightness(1.1);
     transition: color 0.3s ease-in-out;
@@ -99,8 +87,6 @@ dd {
 .page:hover h2, .page:hover dd {
     color: #f6f5f3;
 }
-
-/* Responsive Design */
 @media (max-width: 768px) {
     .page {
         background-size: contain;
